@@ -8,7 +8,9 @@ class Node;
 
 class Link {
   friend class LinkInstaller;
-
+public:
+  void nextLink(Node *node, Packet *packet);
+  
 private:
   Link(Node *nodeA, Node *nodeB) : nodeA_(nodeA), nodeB_(nodeB) {}
 
@@ -19,6 +21,7 @@ private:
   Node *other(const Node *node) const {
     return node == nodeA_ ? nodeB_ : nodeA_;
   }
+
 };
 
 #endif
